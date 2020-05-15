@@ -1,0 +1,26 @@
+{
+  "name": "quickcomp",
+  "version": "0.0.2",
+  "description": "Make it easier to develop and build components",
+  "bin": {
+    "quickcomp": "bin/quickcomp"
+  },
+  "dependencies": {
+    "chalk": "^4.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lhz960904/quickcomp.git"
+  },
+  "keywords": [],
+  "author": "lihaozecq <lihaozecq@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lhz960904/quickcomp/issues"
+  },
+  "homepage": "https://github.com/lhz960904/quickcomp#readme"
+}
