@@ -1,3 +1,47 @@
 #!/usr/bin/env node
+const { program } = require('commander');
+const { version } = require('../package.json');
+const chalk = require('chalk');
 
-console.log(process.argv);
+program.version(`v${version}`, '-v, --version');
+
+program
+  .command('create <component-name>')
+  .description('create a new component npm package')
+  .action((componentName) => {
+    console.log(`创建组件: ${componentName}`);
+  });
+
+program
+  .command('serve')
+  .description('develop in document mode')
+  .action(() => {
+    console.log(`开发环境`);
+  });
+
+program
+  .command('build')
+  .description('build source code and docs')
+  .action(() => {
+    console.log(`打包代码`);
+  });
+
+program.on('command:*', function (operands) {
+  program.outputHelp();
+  console.log(
+    `  ` + chalk.red(`Unknown command ${chalk.yellow(operands[0])}.`)
+  );
+  console.log();
+});
+
+program.on('--help', () => {
+  console.log();
+  console.log(
+    `  Run ${chalk.cyan(
+      `quickcomp <command> --help`
+    )} for detailed usage of given command.`
+  );
+  console.log();
+});
+
+program.parse(process.argv);
