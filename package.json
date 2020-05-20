@@ -1,21 +1,37 @@
 {
   "name": "quickcomp",
-  "version": "0.0.2",
+  "version": "0.0.4",
   "description": "Make it easier to develop and build components",
   "bin": {
     "quickcomp": "bin/quickcomp"
   },
+  "scripts": {
+    "dev": "tsc -watch",
+    "buld": "tsc"
+  },
+  "files": [
+    "lib",
+    "bin",
+    "src",
+    "types"
+  ],
   "dependencies": {
+    "@storybook/addon-actions": "^5.3.18",
+    "@storybook/addon-console": "^1.2.1",
+    "@storybook/addon-info": "^5.3.18",
+    "@storybook/react": "^5.3.18",
+    "babel-loader": "^8.1.0",
     "chalk": "^4.0.0",
     "commander": "^5.1.0",
-    "fs-extra": "^9.0.0"
+    "fs-extra": "^9.0.0",
+    "glob": "^7.1.6",
+    "react-docgen-typescript-loader": "^3.7.2",
+    "ts-loader": "^7.0.4"
   },
   "devDependencies": {
     "@types/fs-extra": "^9.0.0",
+    "@types/glob": "^7.1.1",
     "prettier": "^2.0.5"
-  },
-  "scripts": {
-    "dev": "tsc -watch"
   },
   "repository": {
     "type": "git",

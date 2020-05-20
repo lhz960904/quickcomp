@@ -2,7 +2,7 @@
 const { program } = require('commander');
 const { version } = require('../package.json');
 const chalk = require('chalk');
-const { create } = require('../lib');
+const { create, serve } = require('../lib');
 
 program.version(`v${version}`, '-v, --version');
 
@@ -11,12 +11,7 @@ program
   .description('create a new component npm package')
   .action(create);
 
-program
-  .command('serve')
-  .description('develop in document mode')
-  .action(() => {
-    console.log(`开发环境`);
-  });
+program.command('serve').description('develop in document mode').action(serve);
 
 program
   .command('build')
