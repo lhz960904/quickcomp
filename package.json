@@ -7,14 +7,23 @@
   },
   "scripts": {
     "dev": "tsc -watch",
-    "buld": "tsc"
+    "buld": "rm -rf lib types && tsc",
+    "lint": "prettier --write --parser typescript \"src/**/*.ts\"",
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
+    "prepublishOnly": "yarn build && yarn changelog",
+    "postpublish": "git add CHANGELOG.md && git commit -m 'chore: update changelog' && git push"
   },
-  "files": [
-    "lib",
-    "bin",
-    "src",
-    "types"
-  ],
+  "gitHooks": {
+    "pre-commit": "lint-staged"
+  },
+  "lint-staged": {
+    "*.js": [
+      "prettier --write"
+    ],
+    "*.ts": [
+      "prettier --parser=typescript --write"
+    ]
+  },
   "dependencies": {
     "@storybook/addon-actions": "^5.3.18",
     "@storybook/addon-console": "^1.2.1",
@@ -31,6 +40,7 @@
   "devDependencies": {
     "@types/fs-extra": "^9.0.0",
     "@types/glob": "^7.1.1",
+    "conventional-changelog-cli": "^2.0.34",
     "prettier": "^2.0.5"
   },
   "repository": {
@@ -38,6 +48,12 @@
     "url": "git+https://github.com/lhz960904/quickcomp.git"
   },
   "keywords": [],
+  "files": [
+    "lib",
+    "bin",
+    "src",
+    "types"
+  ],
   "author": "lihaozecq <lihaozecq@gmail.com>",
   "license": "MIT",
   "bugs": {
