@@ -1,13 +1,13 @@
 {
   "name": "quickcomp",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Make it easier to develop and build components",
   "bin": {
     "quickcomp": "bin/quickcomp"
   },
   "scripts": {
     "dev": "tsc -watch",
-    "buld": "rm -rf lib types && tsc",
+    "build": "rm -rf lib types && tsc",
     "lint": "prettier --write --parser typescript \"src/**/*.ts\"",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
     "prepublishOnly": "yarn build && yarn changelog",
