@@ -41,7 +41,9 @@
     "@types/fs-extra": "^9.0.0",
     "@types/glob": "^7.1.1",
     "conventional-changelog-cli": "^2.0.34",
-    "prettier": "^2.0.5"
+    "lint-staged": "^10.2.4",
+    "prettier": "^2.0.5",
+    "yorkie": "^2.0.0"
   },
   "repository": {
     "type": "git",
