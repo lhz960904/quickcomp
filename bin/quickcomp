@@ -2,7 +2,7 @@
 const { program } = require('commander');
 const { version } = require('../package.json');
 const chalk = require('chalk');
-const { create, serve } = require('../lib');
+const { create, serve, build } = require('../lib');
 
 program.version(`v${version}`, '-v, --version');
 
@@ -13,12 +13,7 @@ program
 
 program.command('serve').description('develop in document mode').action(serve);
 
-program
-  .command('build')
-  .description('build source code and docs')
-  .action(() => {
-    console.log(`打包代码`);
-  });
+program.command('build').description('build source code and docs').action(build);
 
 program.on('command:*', function (operands) {
   program.outputHelp();

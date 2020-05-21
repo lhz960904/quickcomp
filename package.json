@@ -1,6 +1,6 @@
 {
   "name": "quickcomp",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Make it easier to develop and build components",
   "bin": {
     "quickcomp": "bin/quickcomp"
@@ -25,6 +25,9 @@
     ]
   },
   "dependencies": {
+    "@babel/preset-env": "^7.9.6",
+    "@babel/preset-react": "^7.9.4",
+    "@babel/preset-typescript": "^7.9.0",
     "@storybook/addon-actions": "^5.3.18",
     "@storybook/addon-console": "^1.2.1",
     "@storybook/addon-info": "^5.3.18",
@@ -34,12 +37,19 @@
     "commander": "^5.1.0",
     "fs-extra": "^9.0.0",
     "glob": "^7.1.6",
+    "gulp-typescript": "^6.0.0-alpha.1",
+    "ora": "^4.0.4",
     "react-docgen-typescript-loader": "^3.7.2",
-    "ts-loader": "^7.0.4"
+    "through2": "^3.0.1",
+    "ts-loader": "^7.0.4",
+    "typescript": "^3.9.3"
   },
   "devDependencies": {
+    "@types/babel__core": "^7.1.7",
     "@types/fs-extra": "^9.0.0",
     "@types/glob": "^7.1.1",
+    "@types/gulp-less": "^0.0.31",
+    "@types/through2": "^2.0.36",
     "conventional-changelog-cli": "^2.0.34",
     "lint-staged": "^10.2.4",
     "prettier": "^2.0.5",
