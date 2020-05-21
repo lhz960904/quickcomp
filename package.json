@@ -62,7 +62,11 @@
     "type": "git",
     "url": "git+https://github.com/lhz960904/quickcomp.git"
   },
-  "keywords": [],
+  "keywords": [
+    "react component",
+    "cli",
+    "quick"
+  ],
   "files": [
     "lib",
     "bin",
