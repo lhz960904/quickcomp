@@ -75,7 +75,7 @@ export default async function serve() {
   const { storybookPath } = generator(process.cwd());
 
   const srcPath = join(process.cwd(), 'src');
-  const targetPath = join(process.cwd(), 'libx');
+  const targetPath = join(process.cwd(), 'lib');
   const docsPath = join(process.cwd(), 'docs');
 
   // clear
