@@ -1,0 +1,23 @@
+{
+  "name": "<%= packageName %>",
+  "version": "0.0.1",
+  "description": "<%= packageDescription %>",
+  "main": "lib/index.js",
+  "scripts": {
+    "start": "quickcomp serve",
+    "build": "quickcomp build"
+  },
+  "devDependencies": {
+    "@types/react": "^16.9.35",
+    "prettier": "^2.0.5",
+    "typescript": "^3.8.3"
+  },
+  "peerDependencies": {
+    "react": "*",
+    "react-dom": "*"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "quickcomp": "^0.0.7"
+  }
+}
