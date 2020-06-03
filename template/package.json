@@ -10,14 +10,12 @@
   "devDependencies": {
     "@types/react": "^16.9.35",
     "prettier": "^2.0.5",
-    "typescript": "^3.8.3"
+    "typescript": "^3.8.3",
+    "quickcomp": "1.0.0"
   },
   "peerDependencies": {
     "react": "*",
     "react-dom": "*"
   },
-  "license": "MIT",
-  "dependencies": {
-    "quickcomp": "^0.0.7"
-  }
+  "license": "MIT"
 }

@@ -1,17 +1,19 @@
 {
   "name": "quickcomp",
-  "version": "0.0.8",
+  "version": "0.1.0",
   "description": "Make it easier to develop and build components",
   "bin": {
     "quickcomp": "bin/quickcomp"
   },
   "scripts": {
     "dev": "tsc -watch",
-    "build": "rm -rf lib types && tsc",
+    "build": "node scripts/syncVersion.js && rm -rf lib types && tsc",
     "lint": "prettier --write --parser typescript \"src/**/*.ts\"",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
     "prepublishOnly": "yarn build && yarn changelog",
-    "postpublish": "git add CHANGELOG.md && git commit -m 'chore: update changelog' && git push"
+    "postpublish": "npm run update:changelog && npm run update:version && git push",
+    "update:changelog": "git add CHANGELOG.md && git commit -m 'chore: update changelog'",
+    "update:version": "git add template/package.json && git commit -m 'chore: update template version'"
   },
   "gitHooks": {
     "pre-commit": "lint-staged"
@@ -56,10 +58,13 @@
     "@types/ejs": "^3.0.4",
     "@types/fs-extra": "^9.0.0",
     "@types/glob": "^7.1.1",
+    "@types/gulp-if": "^0.0.33",
     "@types/gulp-less": "^0.0.31",
     "@types/inquirer": "^6.5.0",
     "@types/metalsmith": "^2.3.0",
+    "@types/rimraf": "^3.0.0",
     "@types/through2": "^2.0.36",
+    "@types/vinyl-fs": "^2.4.11",
     "conventional-changelog-cli": "^2.0.34",
     "lint-staged": "^10.2.4",
     "prettier": "^2.0.5",
@@ -78,7 +83,8 @@
     "lib",
     "bin",
     "src",
-    "types"
+    "types",
+    "template"
   ],
   "author": "lihaozecq <lihaozecq@gmail.com>",
   "license": "MIT",

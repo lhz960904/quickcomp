@@ -2,7 +2,6 @@ import ora from 'ora';
 import ejs from 'ejs';
 import fse from 'fs-extra';
 import chalk from 'chalk';
-import execa from 'execa';
 import { resolve, relative } from 'path';
 import inquirer from 'inquirer';
 import Metalsmith from 'metalsmith';
@@ -48,9 +47,12 @@ export default async function create(pkgName: string) {
     .then(async (res) => {
       spinner.stop();
       console.log(logSymbols.success, chalk.green('模板创建成功！'));
-      console.log(chalk.green(`\ncd ${relative(cwd, targetDir)}\n\nnpm install\n\nnpm run start`));
+      console.log(
+        chalk.green(`\n  cd ${relative(cwd, targetDir)}\n\n  npm install\n\n  npm run start\n`)
+      );
     })
     .catch((err) => {
+      spinner.stop();
       console.error(logSymbols.error, chalk.red(`创建失败：${err.message}`));
     });
 }
@@ -75,7 +77,7 @@ function templatePlugin(
   done: Metalsmith.Callback
 ) {
   const meta = metalsmith.metadata() as Answer;
-  // 去除变量
+  // 替换变量
   Object.keys(files).forEach((fileName) => {
     const s = files[fileName].contents.toString();
     files[fileName].contents = ejs.render(s, meta);
